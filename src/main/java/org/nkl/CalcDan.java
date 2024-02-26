@@ -1,7 +1,5 @@
 package org.nkl;
 
-import java.util.Arrays;
-
 public class CalcDan{
     double danio, efectividad;
     public void cal(String pokemonAtaq, double atq, String pokemonDef, double def){
@@ -36,10 +34,6 @@ public class CalcDan{
                         case "planta", "electrico" -> efectividad = 0.5;
                     }
                 break;
-
-                default:
-                    System.err.println("Eliga un Pókemon de ataque valido.");
-                return;
             }
 
         danio = 50*(atq/def)*efectividad;
@@ -54,13 +48,13 @@ public class CalcDan{
         }
     }
 
-    public void valPk(String pk){
-        for(PkType pkt : PkType.values()){
-            if(!pk.equals(String.valueOf(pkt))){
-                System.err.println("Eliga un Pókemon de ataque valido.");
-                return;
-            }
+    public boolean valPk(String pk){
+        try{
+            PkType.valueOf(pk);
+            return false;
+        }catch (IllegalArgumentException ignored){
+            System.err.println("Eliga un Pókemon de ataque valido.");
+            return true;
         }
     }
-
 }

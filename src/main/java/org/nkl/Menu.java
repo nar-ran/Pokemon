@@ -27,6 +27,7 @@ public class Menu {
             try{
                 System.out.println("Pokémon de Ataque: ");
                 pokemonAtq = sc.next();
+                // validar mensaje de error
                 cn.valPk(pokemonAtq);
 
                 System.out.println("Ingrese el Ataque: (1-100)");
@@ -39,7 +40,7 @@ public class Menu {
 
                 System.out.println("Ingrese la Defensa: (1-100)");
                 pkDef = sc.nextInt();
-                cn.valAtt(pkDef);
+                cn.valPk(pokemonDef);
 
                 cn.cal(pokemonAtq.toLowerCase(), pkAtq, pokemonDef.toLowerCase(), pkDef);
             }catch (InputMismatchException e){
