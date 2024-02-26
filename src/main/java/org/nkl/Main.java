@@ -36,6 +36,7 @@ public class Main {
                 }
             }catch (InputMismatchException e){
                 System.err.println("El ataque y la defensa deben ser números.");
+                continuar = sc.next().equals("1");
             }
 
             System.out.println("\n- - - - - Menú - - - - -" +
