@@ -1,4 +1,4 @@
-package org.nkl;
+package org.nkl.o;
 
 public class Pokemon {
     private String tipo;

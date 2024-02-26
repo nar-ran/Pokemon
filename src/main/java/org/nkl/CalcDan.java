@@ -1,49 +1,39 @@
 package org.nkl;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class CalcDan{
     double danio, efectividad;
     public void cal(String pokemonAtaq, double atq, String pokemonDef, double def){
-        if(pokemonDef.equals("agua") || pokemonDef.equals("fuego") || pokemonDef.equals("planta") || pokemonDef.equals("electrico")){
             switch (pokemonAtaq){
                 case "agua":
-                    if(pokemonDef.equals("agua")){
-                        efectividad = 1;
-                    } else if (pokemonDef.equals("fuego")) {
-                        efectividad = 0.5;
-                    } else if (pokemonDef.equals("planta") || pokemonDef.equals("electrico")) {
-                        efectividad = 2;
+                    switch (pokemonDef) {
+                        case "agua" -> efectividad = 1;
+                        case "fuego" -> efectividad = 0.5;
+                        case "planta", "electrico" -> efectividad = 2;
                     }
                 break;
 
                 case "fuego":
-                    if(pokemonDef.equals("agua")){
-                        efectividad = 2;
-                    } else if (pokemonDef.equals("fuego") || pokemonDef.equals("planta")) {
-                        efectividad = 0.5;
-                    } else if (pokemonDef.equals("electrico")) {
-                        efectividad = 1;
+                    switch (pokemonDef) {
+                        case "agua" -> efectividad = 2;
+                        case "fuego", "planta" -> efectividad = 0.5;
+                        case "electrico" -> efectividad = 1;
                     }
                 break;
 
                 case "planta":
-                    if(pokemonDef.equals("agua") || pokemonDef.equals("fuego")){
-                        efectividad = 2;
-                    } else if (pokemonDef.equals("planta")) {
-                        efectividad = 0.5;
-                    } else if (pokemonDef.equals("electrico")) {
-                        efectividad = 1;
+                    switch (pokemonDef) {
+                        case "agua", "fuego" -> efectividad = 2;
+                        case "planta" -> efectividad = 0.5;
+                        case "electrico" -> efectividad = 1;
                     }
                 break;
 
                 case "electrico":
-                    if(pokemonDef.equals("agua") || pokemonDef.equals("fuego")){
-                        efectividad = 1;
-                    } else if (pokemonDef.equals("planta") || pokemonDef.equals("electrico")) {
-                        efectividad = 0.5;
+                    switch (pokemonDef){
+                        case "agua", "fuego" -> efectividad = 1;
+                        case "planta", "electrico" -> efectividad = 0.5;
                     }
                 break;
 
@@ -51,14 +41,26 @@ public class CalcDan{
                     System.err.println("Eliga un Pókemon de ataque valido.");
                 return;
             }
-        }else{
-            System.err.println("Eliga un Pókemon de defensa valido.");
-            return;
-        }
 
         danio = 50*(atq/def)*efectividad;
         String tpEfe = efectividad == 2 ? "Súper Efectivo" : efectividad == 1 ? "Neutral" : "No es muy efectivo";
         System.out.println("El daño causado durante la batalla fue de: "+danio);
         System.out.println("El ataque tuvo una efectividad del x"+efectividad +" ("+tpEfe+")");
     }
+
+    public void valAtt(double att){
+        if(!(att > 0 && att <= 100)){
+            System.err.println("El ataque y la defensa deben estar dentro del rango permitido (1-100)");
+        }
+    }
+
+    public void valPk(String pk){
+        for(PkType pkt : PkType.values()){
+            if(!pk.equals(String.valueOf(pkt))){
+                System.err.println("Eliga un Pókemon de ataque valido.");
+                return;
+            }
+        }
+    }
+
 }
