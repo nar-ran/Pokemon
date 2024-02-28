@@ -7,8 +7,6 @@ public class Menu {
     Scanner sc = new Scanner(System.in);
 
     public void mostrar(){
-//        boolean continuar = true;
-
         CalcDan cn = new CalcDan();
         Validaciones v = new Validaciones();
 

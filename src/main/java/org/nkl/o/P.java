@@ -1,4 +1,5 @@
 package org.nkl.o;
+// Archivo de prueba
 
 import java.sql.Array;
 
@@ -6,6 +7,19 @@ public class P {
     double danio, efectividad;
     String pokemonesT[] = {"agua", "fuego", "planta", "electrico"};
 
+
+    // Codigo de prueba con un Mapa
+//        Map<String, Double> mapa = new HashMap<>(Map.of());
+//
+//        mapa.put("agua", Map.of("agua", 1.0,
+//                                "fuego", 0.5,
+//                                "planta", 2.0,
+//                                "electrico",2.0
+//                )
+//        );
+//        mapa.put("fuego", Map.of("agua", 2, "fuego", 0.5, "planta", 0.5, "electrico", 1));
+//        mapa.put("planta", Map.of("agua", 2, "fuego", 2, "planta", 0.5, "electrico", 1));
+//        mapa.put("electrico", Map.of("agua", 1, "fuego", 1, "planta", 0.5, "electrico", 0.5));
 
     public void cal(String pokemonAtaq, double atq, String pokemonDef, double def) {
         if (pokemonDef.equals("agua") || pokemonDef.equals("fuego") || pokemonDef.equals("planta") || pokemonDef.equals("electrico")) {
