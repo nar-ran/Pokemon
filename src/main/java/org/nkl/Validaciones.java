@@ -3,7 +3,7 @@ package org.nkl;
 public class Validaciones {
     Menu m = new Menu();
 
-    public boolean valAtt(double att){
+    public boolean valRango(double att){
         if(!(att > 0 && att <= 100)){
             System.err.println("El ataque y la defensa deben estar dentro del rango permitido (1-100)");
             return true;
@@ -11,7 +11,7 @@ public class Validaciones {
         return false;
     }
 
-    public boolean valPk(String pk){
+    public boolean valPokemon(String pk){
         try{
             PkType.valueOf(pk);
             return false;

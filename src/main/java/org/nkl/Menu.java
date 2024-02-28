@@ -23,25 +23,25 @@ public class Menu {
             try{
                 System.out.println("Pokémon de Ataque: ");
                 pokemonAtq = sc.next();
-                if(v.valPk(pokemonAtq.toUpperCase())){
+                if(v.valPokemon(pokemonAtq.toUpperCase())){
                     System.err.println("Eliga un pokemon de Ataque valido");
                     continue;
                 }
 
                 System.out.println("Ingrese el Ataque: (1-100)");
                 pkAtq = sc.nextInt();
-                if(v.valAtt(pkAtq)) { continue; };
+                if(v.valRango(pkAtq)) { continue; };
 
                 System.out.println("Pokémon de Defensa: ");
                 pokemonDef = sc.next();
-                if(v.valPk(pokemonDef.toUpperCase())){
+                if(v.valPokemon(pokemonDef.toUpperCase())){
                     System.err.println("Eliga un pokemon de Defensa valido");
                     continue;
                 }
 
                 System.out.println("Ingrese la Defensa: (1-100)");
                 pkDef = sc.nextInt();
-                if(v.valAtt(pkDef)) { continue; };
+                if(v.valRango(pkDef)) { continue; };
 
                 cn.cal(pokemonAtq.toLowerCase(), pkAtq, pokemonDef.toLowerCase(), pkDef);
             }catch (InputMismatchException e){
