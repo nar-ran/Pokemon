@@ -11,4 +11,5 @@ public enum PkType {
     public String toLowerCaseString() {
         return this.toString().toLowerCase();
     }
+
 }

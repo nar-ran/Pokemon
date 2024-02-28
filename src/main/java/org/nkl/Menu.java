@@ -20,35 +20,53 @@ public class Menu {
                 System.out.println("⭒ ".concat(pkEnum.toCapitalizeString()));
             }
 
-            try{
+            do{
                 System.out.println("Pokémon de Ataque: ");
                 pokemonAtq = sc.next();
                 if(v.valPokemon(pokemonAtq.toUpperCase())){
                     System.err.println("Eliga un pokemon de Ataque valido");
-                    continue;
+
+                    System.out.println("Pókemones Disponibles:");
+                    for (PkType pkEnum: PkType.values()){
+                        System.out.println("⭒ ".concat(pkEnum.toCapitalizeString()));
+                    }
                 }
+            }while(v.valPokemon(pokemonAtq.toUpperCase()));
 
+            do {
                 System.out.println("Ingrese el Ataque: (1-100)");
+                while (!sc.hasNextInt()) {
+                    System.err.println("El ataque debe ser un número entero.");
+                    System.out.println("Ingrese el Ataque: (1-100)");
+                    sc.next(); // Limpiar el buffer del escáner
+                }
                 pkAtq = sc.nextInt();
-                if(v.valRango(pkAtq)) { continue; };
+            }while (v.valRango(pkAtq));
 
+            do{
                 System.out.println("Pokémon de Defensa: ");
                 pokemonDef = sc.next();
                 if(v.valPokemon(pokemonDef.toUpperCase())){
                     System.err.println("Eliga un pokemon de Defensa valido");
-                    continue;
+
+                    System.out.println("Pókemones Disponibles:");
+                    for (PkType pkEnum: PkType.values()){
+                        System.out.println("⭒ ".concat(pkEnum.toCapitalizeString()));
+                    }
                 }
+            }while(v.valPokemon(pokemonDef.toUpperCase()));
 
+            do{
                 System.out.println("Ingrese la Defensa: (1-100)");
+                while (!sc.hasNextInt()) {
+                    System.err.println("La defensa debe ser un número entero.");
+                    System.out.println("Ingrese la Defensa: (1-100)");
+                    sc.next();
+                }
                 pkDef = sc.nextInt();
-                if(v.valRango(pkDef)) { continue; };
+            }while(v.valRango(pkDef));
 
-                cn.cal(pokemonAtq.toLowerCase(), pkAtq, pokemonDef.toLowerCase(), pkDef);
-            }catch (InputMismatchException e){
-                System.err.println("El ataque y la defensa deben ser números.");
-                boolean continuar = sc.next().equals("1");
-            }
-
+            cn.cal(pokemonAtq.toLowerCase(), pkAtq, pokemonDef.toLowerCase(), pkDef);
         }while(menu());
     }
 
@@ -56,7 +74,7 @@ public class Menu {
         System.out.println("""
 
                     - - - - - Menú - - - - -
-                    1. Iniciar batalla nueva\s
+                    1. Iniciar batalla nueva
                     Otra tecla para salir
                     - - - - - - - - - - - - -""");
 

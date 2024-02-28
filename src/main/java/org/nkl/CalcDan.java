@@ -40,7 +40,7 @@ public class CalcDan {
         double danio = 50 * (atq / def) * efectividad;
         String tpEfe = efectividad == 2 ? "Súper Efectivo" : efectividad == 1 ? "Neutral" : "No es muy efectivo";
         System.out.println("El daño causado durante la batalla fue de: " + danio);
-        System.out.println("El ataque tuvo una efectividad del x" + efectividad + " (" + tpEfe + ")");
+        System.out.println("El ataque tuvo una efectividad del " + efectividad + " (" + tpEfe + ")");
     }
 
 }
