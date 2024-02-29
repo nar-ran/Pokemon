@@ -1,5 +1,7 @@
 package org.nkl;
 
+import java.text.DecimalFormat;
+
 public class CalcDan {
     private double efectividad;
 
@@ -39,7 +41,9 @@ public class CalcDan {
 
         double danio = 50 * (atq / def) * efectividad;
         String tpEfe = efectividad == 2 ? "Súper Efectivo" : efectividad == 1 ? "Neutral" : "No es muy efectivo";
-        System.out.println("El daño causado durante la batalla fue de: " + danio);
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        System.out.println("El daño causado por el Pókemon de "+ pokemonAtaq +" al Pókemon de "+pokemonDef+" durante la batalla fue de: " + df.format(danio));
         System.out.println("El ataque tuvo una efectividad del " + efectividad + " (" + tpEfe + ")");
     }
 
